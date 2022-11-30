@@ -38,15 +38,21 @@ class MyHomePage extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: const <Widget>[
-            SizedBox(
+          children: <Widget>[
+            const SizedBox(
               child: Card(
                 color: Colors.blue,
                 elevation: 5,
                 child: Text('Chart'),
               ),
             ),
-            Card(child: Text('Transaction List'))
+            Column(
+              children: _transactions.map((tr) {
+                return Card(
+                  child: Text(tr.title),
+                );
+              }).toList(),
+            )
           ],
         ));
   }
