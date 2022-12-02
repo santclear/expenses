@@ -37,7 +37,6 @@ class MyHomePage extends StatelessWidget {
           title: const Text('Expenses'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             const SizedBox(
@@ -94,7 +93,39 @@ class MyHomePage extends StatelessWidget {
                   ),
                 );
               }).toList(),
-            )
+            ),
+            Card(
+              elevation: 5,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: <Widget>[
+                    const TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Title',
+                      ),
+                    ),
+                    const TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Expense (US\$)',
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          child: const Text(
+                            'New Transaction',
+                            style: TextStyle(color: Colors.purple),
+                          ),
+                          onPressed: () { },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ));
   }
