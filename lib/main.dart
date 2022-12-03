@@ -13,7 +13,6 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-
   const MyHomePage({super.key});
 
   @override
@@ -21,6 +20,12 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Expenses'),
+          actions: <Widget>[
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.add),
+            )
+          ],
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -36,6 +41,12 @@ class MyHomePage extends StatelessWidget {
               TransactionUser(),
             ],
           ),
-        ));
+        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
   }
 }
