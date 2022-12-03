@@ -27,36 +27,6 @@ class _TransactionUserState extends State<TransactionUser> {
         title: 'Electricity bill',
         value: 211.30,
         date: DateTime.now()),
-    Transaction(
-        id: 't2',
-        title: 'Electricity bill #1',
-        value: 211.30,
-        date: DateTime.now()),
-    Transaction(
-        id: 't2',
-        title: 'Electricity bill #2',
-        value: 211.30,
-        date: DateTime.now()),
-    Transaction(
-        id: 't2',
-        title: 'Electricity bill #3',
-        value: 211.30,
-        date: DateTime.now()),
-    Transaction(
-        id: 't2',
-        title: 'Electricity bill #4',
-        value: 211.30,
-        date: DateTime.now()),
-    Transaction(
-        id: 't2',
-        title: 'Electricity bill #5',
-        value: 211.30,
-        date: DateTime.now()),
-    Transaction(
-        id: 't2',
-        title: 'Electricity bill #6',
-        value: 211.30,
-        date: DateTime.now()),
   ];
 
   _addTransaction(String title, double value) {
