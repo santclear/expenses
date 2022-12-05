@@ -1,8 +1,9 @@
+import 'dart:math';
+
 import 'package:expenses/components/transaction_form.dart';
 import 'package:flutter/material.dart';
-import 'dart:math';
+
 import '../models/transaction.dart';
-import 'components/transaction_form.dart';
 import 'components/transaction_list.dart';
 
 main() => runApp(const ExpensesApp());
@@ -17,7 +18,6 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  
   const MyHomePage({super.key});
 
   @override
@@ -25,7 +25,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final _transactions = [
     Transaction(
       id: 't1',
@@ -57,40 +56,39 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
-      context: context,
-      builder: (_) {
-        return TransactionForm(_addTransaction);
-      }
-    );
+        context: context,
+        builder: (_) {
+          return TransactionForm(_addTransaction);
+        });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Expenses'),
-          actions: <Widget>[
-            IconButton(
-              onPressed: () => _openTransactionFormModal(context),
-              icon: const Icon(Icons.add),
-            )
+      appBar: AppBar(
+        title: const Text('Expenses'),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () => _openTransactionFormModal(context),
+            icon: const Icon(Icons.add),
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            const SizedBox(
+              child: Card(
+                color: Colors.blue,
+                elevation: 5,
+                child: Text('Chart'),
+              ),
+            ),
+            TransactionList(_transactions),
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              const SizedBox(
-                child: Card(
-                  color: Colors.blue,
-                  elevation: 5,
-                  child: Text('Chart'),
-                ),
-              ),
-              TransactionList(_transactions),
-            ],
-          ),
-        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _openTransactionFormModal(context),
         child: const Icon(Icons.add),
