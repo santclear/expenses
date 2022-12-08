@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TransactionForm extends StatefulWidget {
-
   final void Function(String, double) onSubmit;
 
   const TransactionForm(this.onSubmit, {super.key});
@@ -16,13 +15,13 @@ class _TransactionFormState extends State<TransactionForm> {
   final valueController = TextEditingController();
 
   _submitForm() {
-      final title = titleController.text;
-      final value = double.tryParse(valueController.text) ?? 0.0;
+    final title = titleController.text;
+    final value = double.tryParse(valueController.text) ?? 0.0;
 
-      if(title.isEmpty || value <= 0) {
-        return;
-      }
-      widget.onSubmit(title, value);
+    if (title.isEmpty || value <= 0) {
+      return;
+    }
+    widget.onSubmit(title, value);
   }
 
   @override
@@ -42,20 +41,42 @@ class _TransactionFormState extends State<TransactionForm> {
             ),
             TextField(
               controller: valueController,
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              keyboardType:
+                  const TextInputType.numberWithOptions(decimal: true),
               onSubmitted: (_) => _submitForm(),
               decoration: const InputDecoration(
                 labelText: 'Expense (US\$)',
               ),
             ),
+            SizedBox(
+              height: 70,
+              child: Row(
+                children: <Widget>[
+                  const Text('No date selected!'),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Select Date',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                TextButton(
+                ElevatedButton(
                   onPressed: _submitForm,
-                  child: const Text(
+                  child: Text(
                     'New Transaction',
-                    style: TextStyle(color: Colors.purple),
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.button!.color,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                    ),
                   ),
                 ),
               ],

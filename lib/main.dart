@@ -17,7 +17,6 @@ class ExpensesApp extends StatelessWidget {
     final ThemeData theme = ThemeData();
 
     return MaterialApp(
-
       home: const MyHomePage(),
       theme: theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(
@@ -25,13 +24,16 @@ class ExpensesApp extends StatelessWidget {
           secondary: Colors.amber,
         ),
         textTheme: theme.textTheme.copyWith(
-          headline6: const TextStyle(
-            fontFamily: 'OpenSans',
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-        ),
+            headline6: const TextStyle(
+              fontFamily: 'OpenSans',
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+            button: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            )),
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
             fontFamily: 'OpenSans',
@@ -66,10 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
       date: DateTime.now().subtract(const Duration(days: 3)),
     ),
     Transaction(
-        id: 't2',
-        title: 'Electricity bill',
-        value: 211.30,
-        date: DateTime.now().subtract(const Duration(days: 4)),
+      id: 't2',
+      title: 'Electricity bill',
+      value: 211.30,
+      date: DateTime.now().subtract(const Duration(days: 4)),
     )
   ];
 
