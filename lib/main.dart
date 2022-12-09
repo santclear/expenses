@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
 
-    final avaiableHeight = MediaQuery.of(context).size.height
+    final availableHeight = MediaQuery.of(context).size.height
         - appBar.preferredSize.height
         - MediaQuery.of(context).padding.top;
 
@@ -117,11 +117,11 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             SizedBox(
-              height: avaiableHeight * 0.3,
+              height: availableHeight * 0.3,
               child: Chart(_recentTransactions),
             ),
             SizedBox(
-              height: avaiableHeight * 0.7,
+              height: availableHeight * 0.7,
               child: TransactionList(_transactions, _removeTransaction),
             ),
           ],
